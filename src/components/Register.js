@@ -11,11 +11,11 @@ function Register() {
         <div className='Register_overall_container'>
         <section className='Re-container'>
             <div className='Re-content-gird'>
-            <Link to="/userLogin" ><button className='Re-content'><span><AiOutlineUser/> USER REGISTER </span></button></Link> 
+            <Link to="/userRegister" ><button className='Re-content'><span><AiOutlineUser/> USER REGISTER </span></button></Link> 
                 
                 
           
-                <Link to="/userLogin" ><button className='Re-content'><span><AiOutlineUser/> RECRUITER REGISTER </span></button></Link> 
+                <Link to="/recruiterRegister" ><button className='Re-content'><span><AiOutlineUser/> RECRUITER REGISTER </span></button></Link> 
             </div>
         </section>
         </div>

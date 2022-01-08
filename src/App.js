@@ -1,5 +1,4 @@
 import './App.css';
-
 import {
   BrowserRouter as Router,
   Routes,
@@ -9,6 +8,8 @@ import Login from './components/Login';
 import Register from './components/Register';
 import UserLogin from './components/UserLogin';
 import RecruiterLogin from './components/RecruiterLogin';
+import UserRegister from './components/UserRegister';
+import RecruiterRegister from './components/RecruiterRegister';
 
  
 
@@ -20,6 +21,8 @@ function App() {
      <Route path="/register" element={<Register/>} exact={true}/>
      <Route path="/userLogin" element={<UserLogin/>} exact={true}/>
      <Route path="/recruiterLogin" element={<RecruiterLogin/>} exact={true}/>
+     <Route path="/userRegister" element={<UserRegister/>} exact={true}/>
+     <Route path="/recruiterRegister" element={<RecruiterRegister/>} exact={true}/>
    </Routes>
    </Router>
   );

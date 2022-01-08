@@ -94,7 +94,7 @@ function UserLogin() {
                 <div className="L-loginContainer">
                   <div className="L-content">
                     <div className="L-content-position">
-                    <div className="L-login-title">Login</div>
+                    <div className="L-login-title">USER LOGIN</div>
                       <h5>Login with Google</h5><br/>
                       <div>
                         <GoogleLogin

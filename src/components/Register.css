@@ -59,13 +59,16 @@
     padding: 0.5em;
     border-radius: 0.5em;
     font-weight: 600;
-    color: rgb(39, 7, 116);
+    color: #0081ff;
+    border: 5px solid #036ed8;
+    font-family: "Outfit", sans-serif;
+    font-weight: 600;
 }
 
 
 
 .R-input:hover{
-    border:1px solid rgb(77, 10, 231);
+    border: 1px solid rgb(77, 10, 231);
     box-shadow: 0 0 10px #1171d8;
 }
 
@@ -96,13 +99,13 @@
 
 @media screen and (max-device-width:990px) { 
     .R-content{
-        display: grid;
-        place-items: center;
         width: 300px;
-        background-color: #F5FFFA;
-        padding: 0.5em;
+        background-color: #f5fffa;
+        padding: 1em;
         border-radius: 0.5em;
         font-weight: 600;
-        color: rgb(39, 7, 116);
+        color: #0081ff;
+        border: 5px solid #036ed8;
+        font-family: "Outfit", sans-serif;
     }  
 }

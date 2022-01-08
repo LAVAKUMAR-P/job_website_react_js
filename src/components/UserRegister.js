@@ -112,8 +112,9 @@ function UserRegister() {
                 {(formik) => (
                   <div>
                     <div className="R-content">
-                    <div className="R-login-title">USER REGISTER</div>
+                      <div className="R-login-title">USER REGISTER</div>
                       <h5>Sign-Up with Google</h5>
+                      <br />
                       <div>
                         <GoogleLogin
                           clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}

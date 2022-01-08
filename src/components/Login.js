@@ -19,7 +19,7 @@ function Login() {
               </button>
             </Link>
 
-            <Link to="/userLogin">
+            <Link to="/recruiterLogin">
               <button className="Lo-content">
                 <span>
                   <AiOutlineUser /> RECRUITER LOGIN{" "}
