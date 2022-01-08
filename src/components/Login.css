@@ -1,10 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap");
 
 * {
   box-sizing: border-box;
   margin: 0px;
 }
 
+.Login_overall_container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+/*Register container css*/
+
+.Lo-container {
+  width: 300px;
+  background-color: #ffff;
+  padding: 1em;
+  border-radius: 0.5em;
+  color: #0081ff;
+  border: 5px solid #036ed8;
+}
+
+.Lo-content {
+  border-radius: 2px;
+  background-color: #ffff;
+  min-height: 50px;
+  width: 100%;
+  color: black;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border: 1px solid #036ed8;
+  margin: 5px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  font-size: medium;
+}
+
+.Lo-content:hover {
+  background-color: #036ed8;
+  color: #ffff;
+}
 
 /*container position*/
 .L-container-position {
@@ -15,14 +52,13 @@
 
 .L-content {
   width: 300px;
-  background-color:#F5FFFA;
+  background-color: #f5fffa;
   padding: 1em;
   border-radius: 0.5em;
   font-weight: 600;
-  color: #0081FF;
-  border:5px solid #036ed8;
-  font-family: 'Outfit', sans-serif;
- 
+  color: #0081ff;
+  border: 5px solid #036ed8;
+  font-family: "Outfit", sans-serif;
 }
 
 .L-content-position {
@@ -43,7 +79,7 @@
   box-shadow: 0 0 10px #8db4dd;
 }
 
-.L-input2{
+.L-input2 {
   border: 1px solid red;
   box-shadow: 0 0 10px red;
 }
