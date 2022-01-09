@@ -35,7 +35,7 @@ function RecruiterRegister() {
     setLoading(true);
     try {
       let Data = await axios.post(`${env.api}/recruiterRegister`, data);
-      window.alert("User registered");
+      window.alert("Recruiter registered");
       setLoading(false);
       Navigate("/recruiterLogin");
     } catch (error) {
@@ -56,7 +56,7 @@ function RecruiterRegister() {
       let Data = await axios.post(`${env.api}/recruiterLoginbygoogle`, {
         token: googleData.tokenId,
       });
-      window.alert("User registered");
+      window.alert("Recruiter registered");
       setLoading(false);
       Navigate("/recruiterLogin");
     } catch (error) {

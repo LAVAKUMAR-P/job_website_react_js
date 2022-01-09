@@ -46,7 +46,7 @@ function RecruiterLogin() {
   const handleLogin = async (googleData) => {
     setLoading(true);
     try {
-      let postData = await axios.post(`${env.api}/loginbygoogle`, {
+      let postData = await axios.post(`${env.api}/recruiterLoginbygoogle`, {
         token: googleData.tokenId,
       });
       window.localStorage.setItem("app_token", postData.data.token);
