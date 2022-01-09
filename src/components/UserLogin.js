@@ -25,7 +25,7 @@ function UserLogin() {
   const postData = async (values) => {
     setLoading(true);
     try {
-      let postData = await axios.post(`${env.api}/login`, values);
+      let postData = await axios.post(`${env.api}/userLogin`, values);
       window.localStorage.setItem("app_token", postData.data.token);
       window.localStorage.setItem("action", postData.data.unconditional);
       setLoading(false);
@@ -46,7 +46,7 @@ function UserLogin() {
   const handleLogin = async (googleData) => {
     setLoading(true);
     try {
-      let postData = await axios.post(`${env.api}/loginbygoogle`, {
+      let postData = await axios.post(`${env.api}/userLoginbygoogle`, {
         token: googleData.tokenId,
       });
       window.localStorage.setItem("app_token", postData.data.token);

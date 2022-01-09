@@ -18,9 +18,6 @@ function RecruiterRegister() {
     lastName: Yup.string()
       .max(20, "Must be 20 characters or less")
       .required("Required"),
-    address: Yup.string()
-      .max(100, "Must be 100 characters or less")
-      .required("Required"),
     email: Yup.string().email("Email is invalid").required("Email is required"),
     password: Yup.string()
       .min(6, "Password must be at least 6 charaters")
@@ -31,15 +28,16 @@ function RecruiterRegister() {
   });
 
   const Navigate = useNavigate();
+
   const [Loading, setLoading] = useState(false);
 
   const postData = async (data) => {
     setLoading(true);
     try {
-      let Data = await axios.post(`${env.api}/register`, data);
+      let Data = await axios.post(`${env.api}/recruiterRegister`, data);
       window.alert("User registered");
       setLoading(false);
-      Navigate("/login");
+      Navigate("/recruiterLogin");
     } catch (error) {
       setLoading(false);
       if (error.message === "Request failed with status code 409") {
@@ -55,12 +53,12 @@ function RecruiterRegister() {
   const handleregister = async (googleData) => {
     setLoading(true);
     try {
-      let Data = await axios.post(`${env.api}/registerbygoogle`, {
+      let Data = await axios.post(`${env.api}/recruiterLoginbygoogle`, {
         token: googleData.tokenId,
       });
       window.alert("User registered");
       setLoading(false);
-      Navigate("/login");
+      Navigate("/recruiterLogin");
     } catch (error) {
       setLoading(false);
       if (error.message === "Request failed with status code 409") {
@@ -101,7 +99,6 @@ function RecruiterRegister() {
                   let data = {
                     firstName: values.firstName,
                     lastName: values.lastName,
-                    address: values.address,
                     password: values.password,
                     email: values.email,
                   };
@@ -129,7 +126,6 @@ function RecruiterRegister() {
                           label="First Name"
                           name="firstName"
                           type="text"
-                          placeholder="Enter First Name"
                           placeholder="Enter your first Name"
                         />
                         <Textfield

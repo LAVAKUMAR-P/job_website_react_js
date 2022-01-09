@@ -18,9 +18,6 @@ function UserRegister() {
     lastName: Yup.string()
       .max(20, "Must be 20 characters or less")
       .required("Required"),
-    address: Yup.string()
-      .max(100, "Must be 100 characters or less")
-      .required("Required"),
     email: Yup.string().email("Email is invalid").required("Email is required"),
     password: Yup.string()
       .min(6, "Password must be at least 6 charaters")
@@ -36,17 +33,17 @@ function UserRegister() {
   const postData = async (data) => {
     setLoading(true);
     try {
-      let Data = await axios.post(`${env.api}/register`, data);
+      let Data = await axios.post(`${env.api}/userregister`, data);
       window.alert("User registered");
       setLoading(false);
-      Navigate("/login");
+      Navigate("/userLogin");
     } catch (error) {
       setLoading(false);
       if (error.message === "Request failed with status code 409") {
         window.alert("Mailid is already registered");
         console.log(error);
       } else {
-        window.alert("check your network");
+        window.alert("Registeration failed ,check your network");
         console.log(error);
       }
     }
@@ -55,12 +52,12 @@ function UserRegister() {
   const handleregister = async (googleData) => {
     setLoading(true);
     try {
-      let Data = await axios.post(`${env.api}/registerbygoogle`, {
+      let Data = await axios.post(`${env.api}/userregisterbygoogle`, {
         token: googleData.tokenId,
       });
       window.alert("User registered");
       setLoading(false);
-      Navigate("/login");
+      Navigate("/userLogin");
     } catch (error) {
       setLoading(false);
       if (error.message === "Request failed with status code 409") {
@@ -92,12 +89,12 @@ function UserRegister() {
                   firstName: "",
                   lastName: "",
                   email: "",
-                  address: "",
                   password: "",
                   confirmPassword: "",
                 }}
                 validationSchema={validate}
                 onSubmit={async (values) => {
+                  console.log(values);
                   let data = {
                     firstName: values.firstName,
                     lastName: values.lastName,
@@ -131,7 +128,6 @@ function UserRegister() {
                           name="firstName"
                           type="text"
                           placeholder="Enter First Name"
-                          placeholder="Enter your first Name"
                         />
                         <Textfield
                           label="last Name"

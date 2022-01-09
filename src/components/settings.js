@@ -1,6 +1,6 @@
 let getSettings = () => {
     return {
-        api : "http://localhost:3001",
+        api : "http://localhost:3005",
         // api : "https://shopnode123.herokuapp.com",
     }
 }
