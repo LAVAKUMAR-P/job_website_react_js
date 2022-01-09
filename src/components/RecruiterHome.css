@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap");
+
+.RE_page_title{
+    font-family: "Outfit", sans-serif;
+    color: #0081ff; 
+}
+
+.RE_overallcontainer{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.RE_totle{
+    width: 300px;
+    background-color: #ffff;
+    padding: 1em;
+    border-radius: 0.5em;
+    color: black;
+    border: 5px solid #036ed8;
+    background-color: #f5fffa;
+    font-family: "Outfit", sans-serif;
+}
+
+.RE_job{
+    width: 90%;
+    background-color: #ffff;
+    padding: 1em;
+    border-radius: 0.5em;
+    color: black;
+    border: 5px solid #036ed8;
+    background-color: #f5fffa;
+    font-family: "Outfit", sans-serif;
+    margin: 5px;
+}
+
+.RE_colore{
+    color: #0081ff; 
+}

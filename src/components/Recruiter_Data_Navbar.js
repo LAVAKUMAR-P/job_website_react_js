@@ -1,10 +1,10 @@
 export const Recruiter_Data_Navbar =[
     {
-        title : "Register",
-        path:"/register",
+        title : "home",
+        path:"/Rhome",
     },
     {
-        title : "Login",
-        path:"/",
+        title : "post job",
+        path:"/postjob",
     },
 ]

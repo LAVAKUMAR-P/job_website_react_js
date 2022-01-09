@@ -38,6 +38,15 @@ nav img {
   cursor: pointer;
 }
 
+.Logout{
+ 
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #0081ff;
+  font-family: "Outfit", sans-serif;
+  cursor: pointer;
+}
+
 .items:hover {
   color: #036ed8;
   text-decoration: none;
