@@ -12,8 +12,8 @@ import Textarea from "./Textarea";
 import UserNavbar from "./UserNavbar";
 
 function Applyform() {
-    const{Jid,Rid}=useParams()
-    console.log(Jid+" "+Rid);
+  const { Jid, Rid } = useParams();
+  console.log(Jid + " " + Rid);
   const validate = Yup.object({
     Name: Yup.string()
       .max(100, "Must be 100 characters or less")
@@ -30,8 +30,8 @@ function Applyform() {
   const postData = async (data) => {
     setLoading(true);
     try {
-      let Data =  await axios.post(
-        `${env.api}/createjob`,
+      let Data = await axios.post(
+        `${env.api}/applyjob`,
         { data },
         {
           headers: {
@@ -39,26 +39,28 @@ function Applyform() {
           },
         }
       );
-      window.alert("JOB CREATED");
+      window.alert("JOB APPLYED");
       setLoading(false);
-      Navigate("/Rhome");
+      Navigate("/Uhome");
     } catch (error) {
-        setLoading(false);
-        if (error.message === "Request failed with status code 401") {
-            window.alert("Unauthorized");
-            console.log(error);
-          } else {
-            window.alert("some thing went wrong, Try again");
-            console.log(error);
-          }
+      setLoading(false);
+      if (error.message === "Request failed with status code 401") {
+        window.alert("Unauthorized");
+        console.log(error);
+      }else if(error.message === "Request failed with status code 409"){
+        window.alert("Already job applyed");
+        console.log(error);
+        Navigate("/Uhome");
+      } else {
+        window.alert("some thing went wrong, Try again");
+        console.log(error);
+      }
     }
   };
 
-  
-
   return (
     <>
-       <UserNavbar />
+      <UserNavbar />
       {Loading ? (
         <Loading_page />
       ) : (
@@ -69,11 +71,13 @@ function Applyform() {
                 initialValues={{
                   Name: "",
                   education: "",
-                  resume:"",
+                  resume: "",
                 }}
                 validationSchema={validate}
-                onSubmit={async (values) => {
-                    console.log(values);
+                onSubmit={async (values) => { 
+                  values.recruiter_id = Rid;
+                  values.job_id = Jid;
+                  console.log(values);
                   postData(values);
                   setLoading(true);
                 }}
@@ -89,19 +93,19 @@ function Applyform() {
                           type="text"
                           placeholder="Name"
                         />
-                         <Textarea
+                        <Textarea
                           label="EDUCATION"
                           name="education"
                           type="text"
                           placeholder="EG: BE-CSE,ME-CSE"
                         />
-                         <Textfield
+                        <Textfield
                           label="RESUME LINK"
                           name="resume"
                           type="url"
                           placeholder="https://drive.google.com/"
                         />
-                        
+
                         <button className="AP-buttons" type="submit">
                           APPLY
                         </button>
@@ -120,6 +124,5 @@ function Applyform() {
     </>
   );
 }
-
 
 export default Applyform;
