@@ -13,6 +13,7 @@ import RecruiterRegister from './components/RecruiterRegister';
 import RecruiterHome from './components/RecruiterHome.js';
 import UserHome from './components/UserHome';
 import Postjobform from './components/Postjobform';
+import Applyform from './components/Applyform';
 
  
 
@@ -29,6 +30,7 @@ function App() {
      <Route path="/Rhome" element={<RecruiterHome/>} exact={true}/>
      <Route path="/Uhome" element={<UserHome/>} exact={true}/>
      <Route path="/postjob" element={<Postjobform/>} exact={true}/>
+     <Route path="/applyjob/:Jid/:Rid" element={<Applyform/>} exact={true}/>
    </Routes>
    </Router>
   );

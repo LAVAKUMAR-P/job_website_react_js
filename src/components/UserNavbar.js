@@ -41,6 +41,7 @@ export default function UserNavbar() {
               </Link>
             );
           })}
+          <li className="Logout">Logout</li>
         </ul>
       )}
       {!toggleMenu ? (
