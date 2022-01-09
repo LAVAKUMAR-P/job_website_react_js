@@ -10,6 +10,8 @@ import UserLogin from './components/UserLogin';
 import RecruiterLogin from './components/RecruiterLogin';
 import UserRegister from './components/UserRegister';
 import RecruiterRegister from './components/RecruiterRegister';
+import RecruiterHome from './components/RecruiterHome.js';
+import UserHome from './components/UserHome';
 
  
 
@@ -23,6 +25,8 @@ function App() {
      <Route path="/recruiterLogin" element={<RecruiterLogin/>} exact={true}/>
      <Route path="/userRegister" element={<UserRegister/>} exact={true}/>
      <Route path="/recruiterRegister" element={<RecruiterRegister/>} exact={true}/>
+     <Route path="/Rhome" element={<RecruiterHome/>} exact={true}/>
+     <Route path="/Uhome" element={<UserHome/>} exact={true}/>
    </Routes>
    </Router>
   );

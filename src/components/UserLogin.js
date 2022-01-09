@@ -30,7 +30,7 @@ function UserLogin() {
       window.localStorage.setItem("action", postData.data.unconditional);
       setLoading(false);
       window.alert("Login sucessfull");
-      Navigate("/");
+      Navigate("/Uhome");
     } catch (error) {
       setLoading(false);
       console.log("error");
@@ -53,7 +53,7 @@ function UserLogin() {
       window.localStorage.setItem("action", postData.data.unconditional);
       setLoading(false);
       window.alert("Login sucessfull");
-      Navigate("/");
+      Navigate("/Uhome");
     } catch (error) {
       setLoading(false);
       console.log("error");

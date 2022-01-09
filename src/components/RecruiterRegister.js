@@ -53,7 +53,7 @@ function RecruiterRegister() {
   const handleregister = async (googleData) => {
     setLoading(true);
     try {
-      let Data = await axios.post(`${env.api}/recruiterLoginbygoogle`, {
+      let Data = await axios.post(`${env.api}/recruiterRegisterbygoogle`, {
         token: googleData.tokenId,
       });
       window.alert("Recruiter registered");
