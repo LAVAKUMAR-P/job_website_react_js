@@ -12,7 +12,8 @@ import { useParams } from "react-router";
 
 function Resetpassword() {
 
-  const{userId,token}=useParams()
+  const{userId,token}=useParams();
+  
 
   const validate = Yup.object({
     password: Yup.string()

@@ -38,7 +38,6 @@ function App() {
      <Route path="/applyjob/:Jid/:Rid" element={<Applyform/>} exact={true}/>
      <Route path="/privious/:id" element={<PreviousApplyed/>} exact={true}/>
      <Route path="/Userforgetpassword" element={<Forgotpassword/>} exact={true}/>
-    
      <Route path="/Userresetpassword/:userId/:token" element={<Resetpassword/>} exact={true}/>
      <Route path="/forgetpassword" element={<RecruiterForgotpassword/>} exact={true}/>
     <Route path="/resetpassword/:userId/:token" element={<RecruiterResetpassword/>} exact={true}/>

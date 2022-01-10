@@ -26,7 +26,7 @@ export default function RecruiterNavbar() {
 
   return (
     <nav>
-      <Link to="/" ><span className="site_title">Job Portel</span></Link>
+      <Link to="/" ><span className="site_title">Job Portal</span></Link>
       {(toggleMenu || screenWidth > 541) && (
         <ul className="list">
           {Recruiter_Data_Navbar.map((data, index) => {

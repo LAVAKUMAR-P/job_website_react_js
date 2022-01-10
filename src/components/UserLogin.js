@@ -27,7 +27,6 @@ function UserLogin() {
     try {
       let postData = await axios.post(`${env.api}/userLogin`, values);
       window.localStorage.setItem("app_token", postData.data.token);
-      window.localStorage.setItem("action", postData.data.unconditional);
       setLoading(false);
       window.alert("Login sucessfull");
       Navigate("/Uhome");
@@ -50,7 +49,6 @@ function UserLogin() {
         token: googleData.tokenId,
       });
       window.localStorage.setItem("app_token", postData.data.token);
-      window.localStorage.setItem("action", postData.data.unconditional);
       setLoading(false);
       window.alert("Login sucessfull");
       Navigate("/Uhome");

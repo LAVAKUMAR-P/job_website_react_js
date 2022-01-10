@@ -27,7 +27,6 @@ function RecruiterLogin() {
     try {
       let postData = await axios.post(`${env.api}/recruiterLogin`, values);
       window.localStorage.setItem("app_token", postData.data.token);
-      window.localStorage.setItem("action", postData.data.unconditional);
       setLoading(false);
       window.alert("Login sucessfull");
       Navigate("/Rhome");
@@ -50,7 +49,6 @@ function RecruiterLogin() {
         token: googleData.tokenId,
       });
       window.localStorage.setItem("app_token", postData.data.token);
-      window.localStorage.setItem("action", postData.data.unconditional);
       setLoading(false);
       window.alert("Login sucessfull");
       Navigate("/Rhome");

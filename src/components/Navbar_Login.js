@@ -26,7 +26,7 @@ export default function Navbar_Login() {
 
   return (
     <nav>
-      <Link to="/" ><span className="site_title">Job Portel</span></Link>
+      <Link to="/" ><span className="site_title">Job Portal</span></Link>
       {(toggleMenu || screenWidth > 541) && (
         <ul className="list">
           {NavbarData_login.map((data, index) => {
