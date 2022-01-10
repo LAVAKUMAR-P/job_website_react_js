@@ -15,6 +15,10 @@ import UserHome from './components/UserHome';
 import Postjobform from './components/Postjobform';
 import Applyform from './components/Applyform';
 import PreviousApplyed from './components/PreviousApplyed';
+import Forgotpassword from './components/Forgotpassword';
+import Resetpassword from './components/Resetpassword';
+import RecruiterResetpassword from './components/RecruiterResetpassword';
+import RecruiterForgotpassword from './components/RecruiterForgotpassword';
 
  
 
@@ -33,6 +37,11 @@ function App() {
      <Route path="/postjob" element={<Postjobform/>} exact={true}/>
      <Route path="/applyjob/:Jid/:Rid" element={<Applyform/>} exact={true}/>
      <Route path="/privious/:id" element={<PreviousApplyed/>} exact={true}/>
+     <Route path="/Userforgetpassword" element={<Forgotpassword/>} exact={true}/>
+    
+     <Route path="/Userresetpassword/:userId/:token" element={<Resetpassword/>} exact={true}/>
+     <Route path="/forgetpassword" element={<RecruiterForgotpassword/>} exact={true}/>
+    <Route path="/resetpassword/:userId/:token" element={<RecruiterResetpassword/>} exact={true}/>
    </Routes>
    </Router>
   );

@@ -128,7 +128,7 @@ function UserLogin() {
                       </Form>
                     </div>
                     <div className="forgetpassword-position">
-                      <Link to="/forgetpassword">forgetpassword?</Link>
+                      <Link to="/Userforgetpassword">forgetpassword?</Link>
                     </div>
                   </div>
                 </div>
