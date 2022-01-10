@@ -45,6 +45,7 @@ nav img {
   color: #0081ff;
   font-family: "Outfit", sans-serif;
   cursor: pointer;
+  padding: 10px;
 }
 
 .items:hover {

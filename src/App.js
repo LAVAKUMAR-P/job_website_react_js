@@ -14,6 +14,7 @@ import RecruiterHome from './components/RecruiterHome.js';
 import UserHome from './components/UserHome';
 import Postjobform from './components/Postjobform';
 import Applyform from './components/Applyform';
+import PreviousApplyed from './components/PreviousApplyed';
 
  
 
@@ -31,6 +32,7 @@ function App() {
      <Route path="/Uhome" element={<UserHome/>} exact={true}/>
      <Route path="/postjob" element={<Postjobform/>} exact={true}/>
      <Route path="/applyjob/:Jid/:Rid" element={<Applyform/>} exact={true}/>
+     <Route path="/privious/:id" element={<PreviousApplyed/>} exact={true}/>
    </Routes>
    </Router>
   );

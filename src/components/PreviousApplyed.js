@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Loading_page from "./Loading_page";
 import RecruiterNavbar from "./RecruiterNavbar";
-import "./RecruiterHome.css";
+import "./PreviousApplyed.css";
 import axios from "axios";
 import env from "./settings"
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-function RecruiterHome() {
+function PreviousApplyed() {
+  const{id}=useParams()
+
   const [Loading, setLoading] = useState(false);
   const [Jobs, setJobs] = useState([]);
 
@@ -14,9 +16,10 @@ function RecruiterHome() {
   const fetchdata = async (id) => {
     try {
       setLoading(true);
-      let getdata = await axios.get(`${env.api}/JobsByrecruiter`,{
+      let getdata = await axios.get(`${env.api}/appliedPreviousJob`,{
         headers: {
           Authorization: window.localStorage.getItem("app_token"),
+          current_id:id
         },
       });
       setJobs([...getdata.data])
@@ -28,7 +31,7 @@ function RecruiterHome() {
     }
   };
 useEffect(()=>{
-    fetchdata()
+    fetchdata(id)
 },[])
   return (
     <>
@@ -37,31 +40,27 @@ useEffect(()=>{
         <Loading_page />
       ) : (
         <>
-          <div className="RE_overallcontainer">
-              <h2 className="RE_page_title">JOBS POSTED BY YOU</h2>
-            <div className="RE_totle RE_colore">
-              Totel jobs posted by You : {Jobs.length}
+          <div className="PA_overallcontainer">
+              <h2 className="PA_page_title">candidates who have applied to previous jobs</h2>
+            <div className="PA_totle RE_colore">
+              Totel People : {Jobs.length}
             </div>
 
                {
                    Jobs.map((data,index)=>{
                        return(
-                        <section className="RE_job" key={index}>
+                        <section className="PA_job" key={index}>
                         <div>
-                          <div className="RE_colore">COMPANY NAME</div>
+                          <div className="PA_colore">NAME</div>
                           <div>{data.Name}</div>
-                          <div className="RE_colore">JOB DESCRIPTION</div>
+                          <div className="PA_colore">EDUCATION</div>
                           <div>
-                            {data.Job_description}
+                            {data.education}
                           </div>
-                          <div className="RE_colore">SKILLS</div>
-                          <div>
-                            {data.skills}
-                          </div>
-                          <div>
-                            <Link to={`/privious/${data._id}`} ><button className="RE-buttons">View candidates who have applied to previous jobs</button></Link>
-                          
-                          </div>
+                          <div className="PA_colore">RESUME LINK</div>
+                          <div>{data.resume}</div>
+                          <div className="PA_colore">RESUME</div>
+                          <button  className="PA-buttons"><a href={data.resume} className="PA_link" target="_blank">View resume</a></button>
                         </div>
                       </section>
                        )
@@ -74,4 +73,5 @@ useEffect(()=>{
   );
 }
 
-export default RecruiterHome;
+
+export default PreviousApplyed
