@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import "./Register.css";
@@ -7,11 +7,12 @@ import axios from "axios";
 import Textfield from "./Textfield";
 import env from "./settings";
 import { useParams } from "react-router";
+import Loading_page from "./Loading_page";
 
 
 
 function RecruiterResetpassword() {
-
+ const[Loading,setLoading]=useState(false);
   const{userId,token}=useParams()
 
   const validate = Yup.object({
@@ -29,7 +30,9 @@ function RecruiterResetpassword() {
     <>
       <div className="Register-image">
         <Navbar_login />
-        <section className="R-loginContainer">
+       {
+         Loading ? <Loading_page/>:<>
+          <section className="R-loginContainer">
           <div >
             <Formik
               initialValues={{
@@ -38,6 +41,7 @@ function RecruiterResetpassword() {
               }}
               validationSchema={validate}
               onSubmit={async (values) => {
+                setLoading(true)
                 try {
                   console.log(values);
                   let data =await axios.post(`${env.api}/recruiter/reset/${userId}/${token}
@@ -47,6 +51,7 @@ function RecruiterResetpassword() {
                  window.alert("password changed");
                 
                 } catch (error) {
+                  setLoading(false)
                   if(error.message==="Request failed with status code 409"){
                     window.alert("Something went wrong");
                     console.log(error);
@@ -78,7 +83,7 @@ function RecruiterResetpassword() {
                         placeholder="Confirm Password"
                       />
                        <button className="R-buttons" type="submit">
-                       Reset 
+                       Reset password
                       </button>
                       <button className="R-buttons" type="reset">
                         Reset
@@ -89,7 +94,8 @@ function RecruiterResetpassword() {
               )}
             </Formik>
           </div>
-        </section>
+        </section></>
+       }
       </div>
     </>
   );
