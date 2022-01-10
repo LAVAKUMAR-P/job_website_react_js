@@ -43,7 +43,7 @@ useEffect(()=>{
           <div className="PA_overallcontainer">
               <h2 className="PA_page_title">candidates who have applied to previous jobs</h2>
             <div className="PA_totle RE_colore">
-              Totel People : {Jobs.length}
+              Total People : {Jobs.length}
             </div>
 
                {

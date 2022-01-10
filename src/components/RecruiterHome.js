@@ -40,7 +40,7 @@ useEffect(()=>{
           <div className="RE_overallcontainer">
               <h2 className="RE_page_title">JOBS POSTED BY YOU</h2>
             <div className="RE_totle RE_colore">
-              Totel jobs posted by You : {Jobs.length}
+              Total jobs posted by You : {Jobs.length}
             </div>
 
                {

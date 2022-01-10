@@ -74,7 +74,7 @@ function UserHome() {
           <div className="UE_overallcontainer">
             <h2 className="UE_page_title">JOBS</h2>
             <div className="UE_totle RE_colore">
-              Totel jobs for You : {Jobs.length}
+              Total jobs for You : {Jobs.length}
             </div>
 
             {Jobs.map((data, index) => {
@@ -90,7 +90,7 @@ function UserHome() {
                     <div className="UE_button_position">
                       {Applied.some((obj) => obj.job_id === data._id) ? (
                         <button onClick={AlreadyApplyed} className="UE-buttons">
-                          ALREADY APPLYED
+                          ALREADY APPLIED
                         </button>
                       ) : (
                         <Link to={`/applyjob/${data._id}/${data.recruiter_id}`}>
