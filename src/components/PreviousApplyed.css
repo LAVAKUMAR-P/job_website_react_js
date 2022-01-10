@@ -32,6 +32,7 @@
     background-color: #f5fffa;
     font-family: "Outfit", sans-serif;
     margin: 5px;
+    word-break: break-all;
 }
 
 .PA_colore{
