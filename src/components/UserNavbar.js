@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar_login.css";
 import * as AiIcons from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { User_Data_Navbar } from "./User_Data_Navbar";
 
 export default function UserNavbar() {
@@ -24,6 +24,19 @@ export default function UserNavbar() {
     };
   }, []);
 
+  let Navigate =useNavigate();
+  let Logout = () => {
+    try {
+      let check = window.confirm("Are you sure? Wanna Logout");
+      if (check) {
+        window.localStorage.removeItem("app_token");
+        Navigate("/");
+      }
+    } catch (error) {
+      window.alert("some thing went wrong try again");
+    }
+  };
+
   return (
     <nav>
       <Link to="/" ><span className="site_title">Job Portal</span></Link>
@@ -41,7 +54,7 @@ export default function UserNavbar() {
               </Link>
             );
           })}
-          <li className="Logout">Logout</li>
+          <li className="Logout" onClick={Logout}>Logout</li>
         </ul>
       )}
       {!toggleMenu ? (
