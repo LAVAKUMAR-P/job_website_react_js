@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
 import "./Login.css";
@@ -6,16 +6,19 @@ import Navbar_login from "./Navbar_Login";
 import axios from "axios";
 import Textfield from "./Textfield";
 import env from "./settings";
+import Loading_page from "./Loading_page";
 
 function Forgotpassword() {
   const validate = Yup.object({
     email: Yup.string().email("Email is invalid").required("Email is required"),
   });
-
+  const[Loading,setLoading]=useState(false);
   return (
     <>
       <Navbar_login />
-      <div className="image">
+      {
+        Loading ? <Loading_page/>:<>
+              <div className="image">
         <div className="L-container-position">
           <Formik
             initialValues={{
@@ -23,13 +26,15 @@ function Forgotpassword() {
             }}
             validationSchema={validate}
             onSubmit={async (values) => {
+              setLoading(true)
               try {
                 let postData = await axios.post(
                   `${env.api}/userforgetpassword`,{email:values.email}
                 );
-                console.log(postData);
+                setLoading(false)
                 window.alert("Check your mail")
               } catch (error) {
+                setLoading(false)
                 console.log("error");
                 if (error.message === "Request failed with status code 401") {
                   window.alert("mail mismatch");
@@ -63,6 +68,8 @@ function Forgotpassword() {
           </Formik>
         </div>
       </div>
+        </>
+      }
     </>
   );
 }
