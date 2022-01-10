@@ -66,7 +66,6 @@ function RecruiterLogin() {
   // To handle google login failure
   const handleFailure = (err) => {
     console.log(err);
-    window.alert(err.error);
   };
 
   return (

@@ -73,7 +73,6 @@ function RecruiterRegister() {
 
   const handleFailure = (err) => {
     console.log(err);
-    window.alert(err.error);
   };
 
   return (

@@ -17,10 +17,11 @@ function UserLogin() {
       .min(6, "Password must be at least 6 charaters")
       .required("Password is required"),
   });
-
+  
   const Navigate = useNavigate();
   const [Loading, setLoading] = useState(false);
 
+ 
   //to handle login
   const postData = async (values) => {
     setLoading(true);
@@ -66,7 +67,6 @@ function UserLogin() {
   // To handle google login failure
   const handleFailure = (err) => {
     console.log(err);
-    window.alert(err.error);
   };
 
   return (
